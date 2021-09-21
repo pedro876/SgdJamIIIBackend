@@ -12,7 +12,7 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 
 @SpringBootApplication
 //@EnableWebSocket
-public class SgdJamIIIBackendApplication implements CommandLineRunner /*implements WebSocketConfigurer*/ {
+public class SgdJamIIIBackendApplication implements CommandLineRunner {
 	
 	 @Autowired
 	 ApartmentRepository repository;
@@ -24,24 +24,5 @@ public class SgdJamIIIBackendApplication implements CommandLineRunner /*implemen
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("RUNNING");
-		//repository.save(new Apartment("xd"));
-		/*ApartmentController apartmentController = new ApartmentController();
-		String response = apartmentController.SaveApartment("testApartment");
-		System.out.println(response);*/
 	}
-	
-	
-	
-	
-	
-	/*@Override
-	public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-		//registry.addHandler(gameHandler(), "/player").setAllowedOrigins("*").withSockJS();
-	}*/
-	
-	/*@Bean
-	public WebSocketGameHandler gameHandler() {
-		return new WebSocketGameHandler();
-	}*/
-	
 }

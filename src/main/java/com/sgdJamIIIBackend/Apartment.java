@@ -11,11 +11,6 @@ public class Apartment {
 	private String id;
 	private String description;
 	
-	public Apartment(String id) {
-		this.id = id;
-		this.description = "";
-	}
-	
 	public Apartment(String id, String description) {
 		this.id = id;
 		this.description = description;
