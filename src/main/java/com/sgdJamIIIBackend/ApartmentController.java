@@ -48,11 +48,11 @@ public class ApartmentController {
 	
 	@PutMapping("/putApartment")
 	public String UpdateApartment(@RequestBody Apartment apartment) {
+		repository.save(apartment);
 		if(getUser(apartment.getId()) != null) {
-			repository.save(apartment);
 			return "UPDATED APARTMENT: " + apartment.getId();
 		} else {
-			return "APARTMENT DOES NOT EXIST";
+			return "APARTMENT DOES NOT EXIST SO IT WAS CREATED";
 		}
 	}
 	
