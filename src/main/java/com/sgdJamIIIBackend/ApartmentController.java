@@ -31,16 +31,16 @@ public class ApartmentController {
 	private ApartmentRepository repository;
 	
 	@PostMapping("/addApartment")
-	public String SaveApartment(@RequestBody String apartmentName) {
+	public String SaveApartment(@RequestBody Apartment apartment) {
 		System.out.println("HEREE");
 		System.out.println("repository = null? " + (this.repository == null));
 		
 		
-		Optional<Apartment> auxApartment = repository.findById(apartmentName);
+		Optional<Apartment> auxApartment = repository.findById(apartment.getId());
 		if(auxApartment.isPresent()) {
 			return "FAILURE";
 		} else {
-			Apartment apartment = new Apartment(apartmentName);
+			//Apartment apartment = new Apartment(apartmentName);
 			repository.save(apartment);
 			return "SUCCESS";
 		}
