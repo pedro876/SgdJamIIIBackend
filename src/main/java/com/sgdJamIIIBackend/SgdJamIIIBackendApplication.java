@@ -11,7 +11,6 @@ import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
 
 @SpringBootApplication
-//@EnableWebSocket
 public class SgdJamIIIBackendApplication implements CommandLineRunner {
 	
 	 @Autowired

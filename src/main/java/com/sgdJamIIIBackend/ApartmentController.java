@@ -23,6 +23,7 @@ import com.mongodb.client.MongoClient;
 
 
 
+@CrossOrigin(origins = "https://pedro876.itch.io/coliving")
 @RestController
 @RequestMapping("/apartments")
 public class ApartmentController {
