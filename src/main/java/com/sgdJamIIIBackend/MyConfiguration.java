@@ -13,7 +13,7 @@ public class MyConfiguration {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("https://pedro876.itch.io/coliving");
+                registry.addMapping("/**").allowedOrigins("https://v6p9d9t4.ssl.hwcdn.net");
             }
         };
     }
