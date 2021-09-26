@@ -385,12 +385,13 @@ public class ApartmentController {
 		return Optional.of(result);
 	}
 	
-	@GetMapping("/getRanking/{id}")
+	@GetMapping("/getRanking/{count}")
 	public List<Apartment> getRanking(@PathVariable String count){
+		System.out.println("Ranking requested");
 		
 		List<Apartment> apartments = repository.findRanking();
 		
-		List<Apartment> ranking = new ArrayList<>();
+		ArrayList<Apartment> ranking = new ArrayList<>();
 		
 		int maxSize = apartments.size();
 		int countInt = Integer.parseInt(count);
