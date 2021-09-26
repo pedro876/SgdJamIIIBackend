@@ -22,5 +22,5 @@ public interface ApartmentRepository extends MongoRepository<Apartment, String> 
 	public List<Apartment> findFinishedApartments();
 	
 	@Query(value = "{$and :[{bathroomState: 2},{kitchenState: 2},{bedroomState: 2},{livingRoomState: 2}]}", sort = "{stars:-1}")
-	public List<Apartment> findRanking(int count);
+	public List<Apartment> findRanking();
 }

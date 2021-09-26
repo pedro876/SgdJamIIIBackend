@@ -385,6 +385,23 @@ public class ApartmentController {
 		return Optional.of(result);
 	}
 	
+	@GetMapping("/getRanking/{id}")
+	public List<Apartment> getRanking(@PathVariable String count){
+		
+		List<Apartment> apartments = repository.findRanking();
+		
+		List<Apartment> ranking = new ArrayList<>();
+		
+		int maxSize = apartments.size();
+		int countInt = Integer.parseInt(count);
+		for(int i = 0; i < maxSize && i < countInt; i++) {
+			Apartment apartment = apartments.get(i);
+			ranking.add(apartment);
+		}
+		
+		return ranking;
+	}
+	
 	/*@DeleteMapping("/delete/{id}")
 	public String deleteUser(@PathVariable String id) {
 		repository.deleteById(id);
