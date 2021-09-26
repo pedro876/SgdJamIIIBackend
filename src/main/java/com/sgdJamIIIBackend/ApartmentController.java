@@ -31,6 +31,11 @@ public class ApartmentController {
 	@Autowired
 	private ApartmentRepository repository;
 	
+	@GetMapping("/wakeUp")
+	public String WakeUp(){
+		return "AWAKE";
+	}
+	
 	@PostMapping("/addApartment")
 	public String SaveApartment(@RequestBody Apartment apartment) {
 		System.out.println("HEREE");
