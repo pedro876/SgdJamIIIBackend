@@ -190,7 +190,6 @@ public class ApartmentController {
 			apartment.setLivingRoomState(0);
 			repository.save(apartment);
 		}
-		
 	}
 	
 	@GetMapping("/wakeUp")
@@ -198,7 +197,7 @@ public class ApartmentController {
 		return "AWAKE";
 	}
 	
-	@PostMapping("/addApartment")
+	/*@PostMapping("/addApartment")
 	public String SaveApartment(@RequestBody Apartment apartment) {
 		System.out.println("HEREE");
 		System.out.println("repository = null? " + (this.repository == null));
@@ -211,6 +210,19 @@ public class ApartmentController {
 			//Apartment apartment = new Apartment(apartmentName);
 			repository.save(apartment);
 			return "SUCCESS";
+		}
+	}*/
+	
+	@PostMapping("/addStar/{id}")
+	public String SaveApartment(@PathVariable String id) {
+		Optional<Apartment> auxApartment = repository.findById(id);
+		if(auxApartment.isPresent()) {
+			Apartment apartment = auxApartment.get();
+			apartment.setStars(apartment.getStars()+1);
+			repository.save(apartment);
+			return "SUCCESS";
+		} else {
+			return "FAILURE";
 		}
 	}
 	
