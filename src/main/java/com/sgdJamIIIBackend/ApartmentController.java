@@ -141,6 +141,7 @@ public class ApartmentController {
 		Optional<Apartment> opApartment = repository.findById(id);
 		if(opApartment.isPresent()) {
 			Apartment apartment = opApartment.get();
+			if(apartment.getBathroomState() == 2) return;
 			apartment.setBathroomAuthor("");
 			apartment.setBathroomCode("");
 			apartment.setBathroomMsg("");
@@ -154,6 +155,7 @@ public class ApartmentController {
 		Optional<Apartment> opApartment = repository.findById(id);
 		if(opApartment.isPresent()) {
 			Apartment apartment = opApartment.get();
+			if(apartment.getBedroomState() == 2) return;
 			apartment.setBedroomAuthor("");
 			apartment.setBedroomCode("");
 			apartment.setBedroomMsg("");
@@ -167,6 +169,7 @@ public class ApartmentController {
 		Optional<Apartment> opApartment = repository.findById(id);
 		if(opApartment.isPresent()) {
 			Apartment apartment = opApartment.get();
+			if(apartment.getKitchenState() == 2) return;
 			apartment.setKitchenAuthor("");
 			apartment.setKitchenCode("");
 			apartment.setKitchenMsg("");
@@ -180,6 +183,7 @@ public class ApartmentController {
 		Optional<Apartment> opApartment = repository.findById(id);
 		if(opApartment.isPresent()) {
 			Apartment apartment = opApartment.get();
+			if(apartment.getLivingRoomState() == 2) return;
 			apartment.setLivingRoomAuthor("");
 			apartment.setLivingRoomCode("");
 			apartment.setLivingRoomMsg("");
