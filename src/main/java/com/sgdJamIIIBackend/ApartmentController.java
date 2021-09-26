@@ -352,7 +352,6 @@ public class ApartmentController {
 	
 	@GetMapping("/randomUnfinished/{id}")
 	public Optional<Apartment> getRandomUnfinishedApartment(@PathVariable String id){
-		System.out.println("here");
 		List<Apartment> apartments = repository.findUnfinishedApartments();
 		int size;
 		Optional<Apartment> currentApartment = repository.findById(id);
@@ -381,6 +380,7 @@ public class ApartmentController {
 	public Optional<Apartment> getRandomFinishedApartment(@PathVariable String id){
 		
 		List<Apartment> apartments = repository.findFinishedApartments();
+		int originalSize = apartments.size();
 		int size = removeIdFromApartmentsAndGetSize(apartments, id);
 	
 		Apartment result;
@@ -389,13 +389,24 @@ public class ApartmentController {
 			int index = random.nextInt(size);
 			result = apartments.get(index);
 		}
-		else {
+		else if(originalSize > size) {
+			Optional<Apartment> opApartment = repository.findById(id);
+			if(opApartment.isPresent()) {
+				result = opApartment.get();
+			} else {
+				result = new Apartment();
+				result.setBathroomState(2);
+				result.setBedroomState(2);
+				result.setLivingRoomState(2);
+				result.setKitchenState(2);
+			}
+			
+		} else {
 			result = new Apartment();
 			result.setBathroomState(2);
 			result.setBedroomState(2);
 			result.setLivingRoomState(2);
 			result.setKitchenState(2);
-			//result = repository.save(result);
 		}
 		
 		return Optional.of(result);
