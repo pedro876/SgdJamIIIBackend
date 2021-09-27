@@ -193,8 +193,8 @@ public class ApartmentController {
 	}
 	
 	@GetMapping("/wakeUp")
-	public String WakeUp(){
-		return "AWAKE";
+	public WakeUpResponse WakeUp(){
+		return new WakeUpResponse();
 	}
 	
 	/*@PostMapping("/addApartment")
